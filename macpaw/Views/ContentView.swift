@@ -42,46 +42,10 @@ struct ContentView: View {
                 ForEach(datasetManager.personnelList.reversed()) {
                     dataLosses in
                     if dataLosses == datasetManager.personnelList.reversed().first {
-                        HStack {
-                            Spacer()
-                            VStack (alignment: .center) {
-                                Text(String(dataLosses.day))
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 96))
-                                    .fontWeight(.bold)
-                                Text("день війни")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 32))
-                                    .fontWeight(.bold)
-                                HStack(alignment: .center) {
-                                    VStack(alignment: .leading) {
-                                        Text("Втрати ворога на")
-                                            .foregroundColor(Color("customGray"))
-                                        Text(dataLosses.date)
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(Color("customGray"))
-                                    }
-                                    VStack (alignment: .trailing) {
-                                        Text(dataLosses.personnelAmount)
-                                            .foregroundColor(Color("customRed"))
-                                            .font(.system(size: 32))
-                                            .fontWeight(.bold)
-                                        Text("Особового складу")
-                                            .foregroundColor(Color("customGray"))
-                                    }
-                                }
-                                Divider()
-                                    .background(.white)
-                                Text("Additional info...")
-                            }
-                            Spacer()
-                        }
-                        .background(MaterialView(.systemUltraThinMaterialDark))
-                        .cornerRadius(14)
+                        CustomCellView(sharedData: dataLosses)
                     }
                     else {
-                        Text(String(dataLosses.day))
-                            .foregroundColor(.orange)
+                        DefaultCellView(sharedData: dataLosses)
                     }
                     
                         

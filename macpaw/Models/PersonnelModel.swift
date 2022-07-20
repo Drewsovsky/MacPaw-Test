@@ -48,4 +48,12 @@ extension Personnel {
             return String(personnel)
         }
     }
+    
+    init(_ date: String, _ day: Int, _ personnel: Int, _ personnelSymbol: String, _ POW: Int) {
+        self.date = date
+        self.day = day
+        self.personnel = personnel
+        self.personnelSymbol = personnelSymbol
+        self.prisonerOfWar = POW
+    }
 }
