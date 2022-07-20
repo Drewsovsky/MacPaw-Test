@@ -47,7 +47,7 @@ struct ContentView: View {
                         } else {
                             DefaultCellView(day: dataLosses.day, personnelAmount: dataLosses.personnelAmount)
                         }
-                        NavigationLink (destination: DetailsView()) {}
+                        NavigationLink (destination: DetailsView(losses: dataLosses)) {}
                             .frame(maxHeight: .infinity)
                             .opacity(0)
                     }

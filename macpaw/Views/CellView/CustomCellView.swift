@@ -29,8 +29,10 @@ struct CustomCellView: View {
                 HStack(alignment: .center) {
                     VStack(alignment: .leading) {
                         Text("Втрати ворога на")
+                            .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                         Text(date!)
+                            .font(.system(size: 14))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("customGray"))
                     }
@@ -41,6 +43,7 @@ struct CustomCellView: View {
                             .font(.system(size: 32))
                             .fontWeight(.bold)
                         Text("Особового складу")
+                            .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                     }
                 }
@@ -49,6 +52,7 @@ struct CustomCellView: View {
                 HStack {
                     HStack {
                         Text("Літаки")
+                            .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                             .frame(alignment: .leading)
                         Text(String(aircrafts!))
@@ -60,6 +64,7 @@ struct CustomCellView: View {
                     Spacer()
                     HStack {
                         Text("Гвинтокрили")
+                            .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                             .frame(alignment: .leading)
                         Text(String(helicopters!))

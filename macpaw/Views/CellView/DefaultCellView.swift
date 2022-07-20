@@ -33,6 +33,7 @@ struct DefaultCellView: View {
                             .font(.system(size: 30))
                             .fontWeight(.bold)
                         Text("Особового складу")
+                            .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                     }
                 }

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DetailsView: View {
+    
+    let losses: LossesData?
+    
     var body: some View {
-        
         ZStack (alignment: .top) {
             Image("BackgroundImage")
                 .resizable()
@@ -17,7 +19,7 @@ struct DetailsView: View {
             VStack {
                 VStack {
                     VStack (alignment: .center) {
-                        Text(String("10"))
+                        Text(String(losses!.day))
                             .foregroundColor(.white)
                             .font(.system(size: 96))
                             .fontWeight(.bold)
@@ -29,22 +31,40 @@ struct DetailsView: View {
                             VStack(alignment: .leading) {
                                 Text("Втрати ворога на")
                                     .foregroundColor(Color("customGray"))
-                                Text("00.00.0000")
+                                    .font(.system(size: 14))
+                                Text(losses!.date)
                                     .fontWeight(.semibold)
+                                    .font(.system(size: 14))
                                     .foregroundColor(Color("customGray"))
                             }
+                            Spacer()
                             VStack (alignment: .trailing) {
-                                Text("~31000")
+                                Text(losses!.personnelAmount)
                                     .foregroundColor(Color("customRed"))
                                     .font(.system(size: 32))
                                     .fontWeight(.bold)
                                 Text("Особового складу")
+                                    .font(.system(size: 14))
                                     .foregroundColor(Color("customGray"))
                             }
                         }
+                        .padding([.horizontal])
                         Divider()
                             .background(.white)
-                        Text("Additional info...")
+                        VStack {
+                            if losses?.aircraft != 0 {
+                                EquipmentLossView(title: "Літаки", value: losses?.aircraft)
+                            }
+                            if losses?.helicopter != 0 {
+                                EquipmentLossView(title: "Гвинтокрили", value: losses?.helicopter)
+                            }
+                            if losses?.tank != 0 {
+                                EquipmentLossView(title: "Танки", value: losses?.tank)
+                            }
+                            if losses?.armoredPersonnelCarrier != 0 {
+                                EquipmentLossView(title: "APC", value: losses?.armoredPersonnelCarrier)
+                            }
+                        }
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -60,7 +80,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        DetailsView()
+        DetailsView(losses: LossesData("00.00.0000", 0, "0", 0, 0, 0, 0, 0))
     }
 }
