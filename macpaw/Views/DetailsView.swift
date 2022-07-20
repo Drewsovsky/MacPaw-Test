@@ -56,13 +56,49 @@ struct DetailsView: View {
                                 EquipmentLossView(title: "Літаки", value: losses?.aircraft)
                             }
                             if losses?.helicopter != 0 {
-                                EquipmentLossView(title: "Гвинтокрили", value: losses?.helicopter)
+                                EquipmentLossView(title: "Гелікоптери", value: losses?.helicopter)
                             }
                             if losses?.tank != 0 {
                                 EquipmentLossView(title: "Танки", value: losses?.tank)
                             }
                             if losses?.armoredPersonnelCarrier != 0 {
-                                EquipmentLossView(title: "APC", value: losses?.armoredPersonnelCarrier)
+                                EquipmentLossView(title: "ББМ", value: losses?.armoredPersonnelCarrier)
+                            }
+                            if losses?.fieldArtillery != 0 {
+                                EquipmentLossView(title: "Артсистеми", value: losses?.fieldArtillery)
+                            }
+                            if losses?.multipleRocketLauncher != 0 {
+                                EquipmentLossView(title: "РСЗВ", value: losses?.multipleRocketLauncher)
+                            }
+                            if losses?.militaryAuto != 0 {
+                                EquipmentLossView(title: "Автомобілі", value: losses?.militaryAuto)
+                            }
+                            if losses?.fuelTank != 0 {
+                                EquipmentLossView(title: "Цистерни з ПММ", value: losses?.fuelTank)
+                            }
+                            if losses?.drone != 0 {
+                                EquipmentLossView(title: "БПЛА/Дрони", value: losses?.drone)
+                            }
+                            if losses?.navalShip != 0 {
+                                EquipmentLossView(title: "Кораблі/Катери", value: losses?.navalShip)
+                            }
+                            if losses?.antiAircraftWarfare != 0 {
+                                EquipmentLossView(title: "Засоби ППО", value: losses?.antiAircraftWarfare)
+                            }
+                            if losses?.specialEquipment != 0 {
+                                EquipmentLossView(title: "Спецтехніка", value: losses?.specialEquipment)
+                            }
+                            if losses?.mobileSRBMSystem != 0 {
+                                EquipmentLossView(title: "ПУ ОТРК/ТРК", value: losses?.mobileSRBMSystem)
+                            }
+                            if losses?.vehiclesAndFuelTanks != 0 {
+                                EquipmentLossView(title: "Автомобілі та автоцистерни", value: losses?.vehiclesAndFuelTanks)
+                            }
+                            if losses?.cruiseMissiles != 0 {
+                                EquipmentLossView(title: "Крилаті ракети", value: losses?.cruiseMissiles)
+                            }
+                            if losses?.greatestLossesDirection != "N/A" {
+                                Text(losses?.greatestLossesDirection)
                             }
                         }
                     }
@@ -80,6 +116,26 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView(losses: LossesData("00.00.0000", 0, "0", 0, 0, 0, 0, 0))
+        DetailsView(losses: LossesData(
+            date: "0",
+            day: 0,
+            personnelAmount: "0",
+            prisonerOfWar: 0,
+            aircraft: 0,
+            helicopter: 0,
+            tank: 0,
+            armoredPersonnelCarrier: 0,
+            fieldArtillery: 0,
+            multipleRocketLauncher: 0,
+            militaryAuto: 0,
+            fuelTank: 0,
+            drone: 0,
+            navalShip: 0,
+            antiAircraftWarfare: 0,
+            specialEquipment: 0,
+            mobileSRBMSystem: 0,
+            vehiclesAndFuelTanks: 0,
+            cruiseMissiles: 0,
+            greatestLossesDirection: "N/A"))
     }
 }

@@ -29,14 +29,26 @@ class DatasetManager: ObservableObject {
                 for equipment in self.equipmentList {
                     if personnel.date == equipment.date {
                         self.lossesDataList.append(LossesData(
-                            personnel.date,
-                            personnel.day,
-                            personnel.personnelAmount,
-                            personnel.prisonerOfWar,
-                            equipment.aircraft,
-                            equipment.helicopter,
-                            equipment.tank,
-                            equipment.armoredPersonnelCarrier))
+                            date: personnel.date,
+                            day: personnel.day,
+                            personnelAmount: personnel.personnelAmount,
+                            prisonerOfWar: personnel.prisonerOfWar,
+                            aircraft: equipment.aircraft,
+                            helicopter: equipment.helicopter,
+                            tank: equipment.tank,
+                            armoredPersonnelCarrier: equipment.armoredPersonnelCarrier,
+                            fieldArtillery: equipment.fieldArtillery,
+                            multipleRocketLauncher: equipment.multipleRocketLauncher,
+                            militaryAuto: equipment.militaryAuto,
+                            fuelTank: equipment.fuelTank,
+                            drone: equipment.drone,
+                            navalShip: equipment.navalShip,
+                            antiAircraftWarfare: equipment.antiAircraftWarfare,
+                            specialEquipment: equipment.specialEquipment,
+                            mobileSRBMSystem: equipment.mobileSRBMSystem,
+                            vehiclesAndFuelTanks: equipment.vehiclesAndFuelTanks,
+                            cruiseMissiles: equipment.cruiseMissiles,
+                            greatestLossesDirection: equipment.greatestLossesDirection))
                     }
                 }
             }
