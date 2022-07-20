@@ -9,14 +9,15 @@ import SwiftUI
 
 struct DefaultCellView: View {
     
-    let sharedData: Personnel?
+    let day: Int?
+    let personnelAmount: String?
     
     var body: some View {
         HStack {
             VStack {
                 HStack(alignment: .center) {
                     VStack(alignment: .leading) {
-                        Text(String(sharedData!.day))
+                        Text(String(day!))
                             .font(.system(size: 32))
                             .fontWeight(.bold)
                             .foregroundColor(Color("customGray"))
@@ -27,7 +28,7 @@ struct DefaultCellView: View {
                     }
                     Spacer()
                     VStack (alignment: .trailing) {
-                        Text(sharedData!.personnelAmount)
+                        Text(personnelAmount!)
                             .foregroundColor(Color("customRed"))
                             .font(.system(size: 30))
                             .fontWeight(.bold)
@@ -46,9 +47,7 @@ struct DefaultCellView: View {
 struct DefaultCellView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let exampleData = Personnel("0-0-0", 0, 0, "about", 0)
-        
-        DefaultCellView(sharedData: exampleData)
+        DefaultCellView(day: 0, personnelAmount: "0")
             .previewLayout(.sizeThatFits)
     }
 }

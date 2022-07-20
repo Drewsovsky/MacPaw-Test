@@ -9,12 +9,16 @@ import SwiftUI
 
 struct CustomCellView: View {
     
-    let sharedData: Personnel?
+    let day: Int?
+    let date: String?
+    let personnelAmount: String?
+    let aircrafts: Int?
+    let helicopters: Int?
     
     var body: some View {
         HStack {
             VStack (alignment: .center) {
-                Text(String(sharedData!.day))
+                Text(String(day!))
                     .foregroundColor(.white)
                     .font(.system(size: 96))
                     .fontWeight(.bold)
@@ -26,12 +30,13 @@ struct CustomCellView: View {
                     VStack(alignment: .leading) {
                         Text("Втрати ворога на")
                             .foregroundColor(Color("customGray"))
-                        Text(sharedData!.date)
+                        Text(date!)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("customGray"))
                     }
+                    Spacer()
                     VStack (alignment: .trailing) {
-                        Text(sharedData!.personnelAmount)
+                        Text(personnelAmount!)
                             .foregroundColor(Color("customRed"))
                             .font(.system(size: 32))
                             .fontWeight(.bold)
@@ -41,7 +46,29 @@ struct CustomCellView: View {
                 }
                 Divider()
                     .background(.white)
-                Text("Additional info...")
+                HStack {
+                    HStack {
+                        Text("Літаки")
+                            .foregroundColor(Color("customGray"))
+                            .frame(alignment: .leading)
+                        Text(String(aircrafts!))
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("customRed"))
+                            .frame(alignment: .trailing)
+                    }
+                    Spacer()
+                    HStack {
+                        Text("Гвинтокрили")
+                            .foregroundColor(Color("customGray"))
+                            .frame(alignment: .leading)
+                        Text(String(helicopters!))
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("customRed"))
+                            .frame(alignment: .trailing)
+                    }
+                }
             }
             .padding()
         }
@@ -53,9 +80,7 @@ struct CustomCellView: View {
 struct CustomCellView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let exampleData = Personnel("0-0-0", 0, 0, "about", 0)
-        
-        CustomCellView(sharedData: exampleData)
+        CustomCellView(day: 0, date: "00.00.0000", personnelAmount: "0", aircrafts: 0, helicopters: 0)
             .previewLayout(.sizeThatFits)
     }
 }
