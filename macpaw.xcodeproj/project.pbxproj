@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6104C32E288810E90099C6CC /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6104C32D288810E90099C6CC /* MaterialView.swift */; };
+		6104C330288812150099C6CC /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6104C32F288812140099C6CC /* CustomCellView.swift */; };
 		6121C54028855B2F005A2C60 /* macpawApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121C53F28855B2F005A2C60 /* macpawApp.swift */; };
 		6121C54228855B2F005A2C60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121C54128855B2F005A2C60 /* ContentView.swift */; };
 		6121C54428855B31005A2C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6121C54328855B31005A2C60 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6104C32D288810E90099C6CC /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		6104C32F288812140099C6CC /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
 		6121C53C28855B2F005A2C60 /* macpaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macpaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6121C53F28855B2F005A2C60 /* macpawApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macpawApp.swift; sourceTree = "<group>"; };
 		6121C54128855B2F005A2C60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			children = (
 				6121C54128855B2F005A2C60 /* ContentView.swift */,
 				6140F3F72886A332003D0A46 /* DetailsView.swift */,
+				6104C32D288810E90099C6CC /* MaterialView.swift */,
+				6104C32F288812140099C6CC /* CustomCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +196,8 @@
 				6121C54228855B2F005A2C60 /* ContentView.swift in Sources */,
 				6121C55528855DE0005A2C60 /* PersonnelModel.swift in Sources */,
 				6121C54028855B2F005A2C60 /* macpawApp.swift in Sources */,
+				6104C330288812150099C6CC /* CustomCellView.swift in Sources */,
+				6104C32E288810E90099C6CC /* MaterialView.swift in Sources */,
 				6140F3F42885756E003D0A46 /* EqipmentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
