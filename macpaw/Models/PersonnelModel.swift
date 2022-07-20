@@ -24,6 +24,12 @@ struct Personnel: Codable {
     let prisonerOfWar: Int
 }
 
+extension Personnel: Equatable {
+    static func == (lhs: Personnel, rhs: Personnel) -> Bool {
+        lhs.day == rhs.day
+    }
+}
+
 extension Personnel: Identifiable {
     var id: Int {
         return day

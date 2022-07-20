@@ -16,7 +16,6 @@
 		6121C55528855DE0005A2C60 /* PersonnelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121C55428855DE0005A2C60 /* PersonnelModel.swift */; };
 		6121C55728855E2A005A2C60 /* DatasetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121C55628855E2A005A2C60 /* DatasetManager.swift */; };
 		6140F3F42885756E003D0A46 /* EqipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140F3F32885756E003D0A46 /* EqipmentModel.swift */; };
-		6140F3F628869E37003D0A46 /* LossesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140F3F528869E37003D0A46 /* LossesModel.swift */; };
 		6140F3F82886A332003D0A46 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140F3F72886A332003D0A46 /* DetailsView.swift */; };
 		6164DD232886C29D00848B83 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6164DD222886C29C00848B83 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -32,7 +31,6 @@
 		6121C55428855DE0005A2C60 /* PersonnelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelModel.swift; sourceTree = "<group>"; };
 		6121C55628855E2A005A2C60 /* DatasetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetManager.swift; sourceTree = "<group>"; };
 		6140F3F32885756E003D0A46 /* EqipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqipmentModel.swift; sourceTree = "<group>"; };
-		6140F3F528869E37003D0A46 /* LossesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossesModel.swift; sourceTree = "<group>"; };
 		6140F3F72886A332003D0A46 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		6164DD222886C29C00848B83 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +99,6 @@
 				6121C55428855DE0005A2C60 /* PersonnelModel.swift */,
 				6121C55628855E2A005A2C60 /* DatasetManager.swift */,
 				6140F3F32885756E003D0A46 /* EqipmentModel.swift */,
-				6140F3F528869E37003D0A46 /* LossesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,7 +185,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6140F3F628869E37003D0A46 /* LossesModel.swift in Sources */,
 				6140F3F82886A332003D0A46 /* DetailsView.swift in Sources */,
 				6121C55728855E2A005A2C60 /* DatasetManager.swift in Sources */,
 				6121C54228855B2F005A2C60 /* ContentView.swift in Sources */,

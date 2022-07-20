@@ -49,9 +49,4 @@ class DatasetManager: ObservableObject {
             print(error)
         }
     }
-    
-    func getPackedData() {
-        var a = equipmentList
-        let b = 0
-    }
 }

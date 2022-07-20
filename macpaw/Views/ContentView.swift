@@ -28,50 +28,41 @@ struct ContentView: View {
 //        UINavigationBar.appearance().tintColor = UIColor.systemBackground
         
         
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-                  UINavigationBar.appearance().shadowImage = UIImage()
-                  UINavigationBar.appearance().isTranslucent = true
-                  UINavigationBar.appearance().tintColor = .clear
-                  UINavigationBar.appearance().backgroundColor = .clear
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//                  UINavigationBar.appearance().shadowImage = UIImage()
+//                  UINavigationBar.appearance().isTranslucent = true
+//                  UINavigationBar.appearance().tintColor = .clear
+//                  UINavigationBar.appearance().backgroundColor = .clear
         
     }
     
     var body: some View {
         NavigationView {
-            List(datasetManager.personnelList.reversed()) {
-                losses in
-                VStack {
-                    Text(String(losses.day))
+            List {
+                ForEach(datasetManager.personnelList.reversed()) {
+                    dataLosses in
+                    if dataLosses == datasetManager.personnelList.reversed().first {
+                        
+                        Text(String(dataLosses.day))
+                            .foregroundColor(.green)
+                    }
+                    else {
+                        
+                        Text(String(dataLosses.day))
+                            .foregroundColor(.orange)
+                    }
+                    
+                        
                 }
                 .listRowBackground(Color.clear)
             }
             .onAppear() {
                 self.datasetManager.fetchLossesData()
-                
             }
             .listStyle(.inset)
             .background(Image("BackgroundImage").ignoresSafeArea(.all))
             .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
         }
-        
-        //            Image() {
-        //                NavigationView {
-        //                    List(datasetManager.personnelList.reversed()) {
-        //                        personnel in
-        //                        if personnel.day == 97 { // TODO: change condition
-        //
-        //                        }
-        //                        else {
-        //
-        //                            Text(String(personnel.day))
-        //                        }
-        //                    }
-        //                    .listStyle(.inset)
-        //                    .navigationBarTitle("#шо_по_потерям")
-        //                }.onAppear {
-        //                    self.datasetManager.fetchLossesData()
-        //                }
-        //            }
     }
 }
 
