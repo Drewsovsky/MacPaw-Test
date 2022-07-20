@@ -20,6 +20,7 @@ struct Equipment {
         case mobileSRBMSystem = "mobile SRBM system"
         case vehiclesAndFuelTanks = "vehicles and fuel tanks"
         case cruiseMissiles = "cruise missiles"
+        case greatestLossesDirection = "greatest losses direction"
         
         case date
         case day
@@ -47,12 +48,7 @@ struct Equipment {
     let mobileSRBMSystem: Int?
     let vehiclesAndFuelTanks: Int?
     let cruiseMissiles: Int?
-}
-
-extension Equipment: Identifiable {
-    var id: Int {
-        return day
-    }
+    let greatestLossesDirection: String?
 }
 
 extension Equipment: Decodable {
@@ -80,5 +76,6 @@ extension Equipment: Decodable {
         mobileSRBMSystem = try container.decodeIfPresent(Int?.self, forKey: .mobileSRBMSystem) ?? 0
         vehiclesAndFuelTanks = try container.decodeIfPresent(Int?.self, forKey: .vehiclesAndFuelTanks) ?? 0
         cruiseMissiles = try container.decodeIfPresent(Int?.self, forKey: .cruiseMissiles) ?? 0
+        greatestLossesDirection = try container.decodeIfPresent(String?.self, forKey: .greatestLossesDirection) ?? "N/A"
     }
 }

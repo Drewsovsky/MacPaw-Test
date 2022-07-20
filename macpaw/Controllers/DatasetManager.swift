@@ -6,18 +6,41 @@
 //
 
 import Foundation
+import SwiftUI
 
 class DatasetManager: ObservableObject {
     
     let urlPersonnelLossses = Bundle.main.url(forResource: "personnel_losses", withExtension: "json")!
     let urlEquipmentLossses = Bundle.main.url(forResource: "equipment_losses", withExtension: "json")!
     
-    @Published var personnelList = [Personnel]()
-    @Published var equipmentList = [Equipment]()
+    var personnelList = [Personnel]()
+    var equipmentList = [Equipment]()
+    @Published var lossesDataList = [LossesData]()
     
     func fetchLossesData() {
         fetchPersonnelData()
         fetchEquipmentData()
+        combineData()
+    }
+    
+    func combineData() {
+        DispatchQueue.main.async {
+            for personnel in self.personnelList {
+                for equipment in self.equipmentList {
+                    if personnel.date == equipment.date {
+                        self.lossesDataList.append(LossesData(
+                            personnel.date,
+                            personnel.day,
+                            personnel.personnelAmount,
+                            personnel.prisonerOfWar,
+                            equipment.aircraft,
+                            equipment.helicopter,
+                            equipment.tank,
+                            equipment.armoredPersonnelCarrier))
+                    }
+                }
+            }
+        }
     }
     
     func fetchPersonnelData() {

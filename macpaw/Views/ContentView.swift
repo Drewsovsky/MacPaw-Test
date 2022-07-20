@@ -39,16 +39,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(datasetManager.personnelList.reversed()) {
+                ForEach(datasetManager.lossesDataList.reversed()) {
                     dataLosses in
-                    if dataLosses == datasetManager.personnelList.reversed().first {
-                        CustomCellView(sharedData: dataLosses)
+                    ZStack {
+                        if dataLosses == datasetManager.lossesDataList.reversed().first! {
+                            CustomCellView(day: dataLosses.day, date: dataLosses.date, personnelAmount: dataLosses.personnelAmount, aircrafts: dataLosses.aircraft, helicopters: dataLosses.helicopter)
+                        } else {
+                            DefaultCellView(day: dataLosses.day, personnelAmount: dataLosses.personnelAmount)
+                        }
+                        NavigationLink (destination: DetailsView(losses: dataLosses)) {}
+                            .frame(maxHeight: .infinity)
+                            .opacity(0)
                     }
-                    else {
-                        DefaultCellView(sharedData: dataLosses)
-                    }
-                    
-                        
                 }
                 .listRowBackground(Color.clear)
             }
@@ -56,7 +58,9 @@ struct ContentView: View {
                 self.datasetManager.fetchLossesData()
             }
             .listStyle(.inset)
-            .background(Image("BackgroundImage").ignoresSafeArea(.all))
+            .background(Image("BackgroundImage")
+                .resizable()
+                .ignoresSafeArea(.all))
             .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
         }
     }

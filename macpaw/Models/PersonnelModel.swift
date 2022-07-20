@@ -25,14 +25,8 @@ struct Personnel: Codable {
 }
 
 extension Personnel: Equatable {
-    static func == (lhs: Personnel, rhs: Personnel) -> Bool {
-        lhs.day == rhs.day
-    }
-}
-
-extension Personnel: Identifiable {
-    var id: Int {
-        return day
+    static func ==(lhs: Personnel, rhs: Equipment) -> Bool {
+        lhs.date == rhs.date
     }
 }
 
@@ -47,13 +41,5 @@ extension Personnel {
         else {
             return String(personnel)
         }
-    }
-    
-    init(_ date: String, _ day: Int, _ personnel: Int, _ personnelSymbol: String, _ POW: Int) {
-        self.date = date
-        self.day = day
-        self.personnel = personnel
-        self.personnelSymbol = personnelSymbol
-        self.prisonerOfWar = POW
     }
 }
