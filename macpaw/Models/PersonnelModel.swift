@@ -9,7 +9,7 @@ import Foundation
 
 struct Personnel: Codable {
     enum CodingKeys: String, CodingKey {
-        case personnelAmount = "personnel*"
+        case personnelSymbol = "personnel*"
         case prisonerOfWar = "POW"
         
         case date
@@ -20,12 +20,40 @@ struct Personnel: Codable {
     let date: String
     let day: Int
     let personnel: Int
-    let personnelAmount: String
+    let personnelSymbol: String
     let prisonerOfWar: Int
+}
+
+extension Personnel: Equatable {
+    static func == (lhs: Personnel, rhs: Personnel) -> Bool {
+        lhs.day == rhs.day
+    }
 }
 
 extension Personnel: Identifiable {
     var id: Int {
         return day
+    }
+}
+
+extension Personnel {
+    var personnelAmount: String {
+        if personnelSymbol == "about" {
+            return "~\(personnel)"
+        }
+        else if (personnelSymbol == "more") {
+            return ">\(personnel)"
+        }
+        else {
+            return String(personnel)
+        }
+    }
+    
+    init(_ date: String, _ day: Int, _ personnel: Int, _ personnelSymbol: String, _ POW: Int) {
+        self.date = date
+        self.day = day
+        self.personnel = personnel
+        self.personnelSymbol = personnelSymbol
+        self.prisonerOfWar = POW
     }
 }
