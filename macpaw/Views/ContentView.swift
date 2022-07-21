@@ -8,38 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @ObservedObject var datasetManager = DatasetManager()
+    @State private var searchText = ""
     
     init() {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
         
         // NavigationBar appereance settup
-//        let navBarAppereance = UINavigationBarAppearance()
-//        navBarAppereance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-//        navBarAppereance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-//        navBarAppereance.backgroundColor = UIColor.clear
-//        //navBarAppereance.backgroundEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-//        navBarAppereance.shadowColor = UIColor.clear
-//        UINavigationBar.appearance().standardAppearance = navBarAppereance
-//        UINavigationBar.appearance().compactAppearance = navBarAppereance
-//        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppereance
-//        UINavigationBar.appearance().tintColor = UIColor.systemBackground
+        //        let navBarAppereance = UINavigationBarAppearance()
+        //        navBarAppereance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
+        //        navBarAppereance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
+        //        navBarAppereance.backgroundColor = UIColor.clear
+        //        //navBarAppereance.backgroundEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        //        navBarAppereance.shadowColor = UIColor.clear
+        //        UINavigationBar.appearance().standardAppearance = navBarAppereance
+        //        UINavigationBar.appearance().compactAppearance = navBarAppereance
+        //        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppereance
+        //        UINavigationBar.appearance().tintColor = UIColor.systemBackground
         
         
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//                  UINavigationBar.appearance().shadowImage = UIImage()
-//                  UINavigationBar.appearance().isTranslucent = true
-//                  UINavigationBar.appearance().tintColor = .clear
-//                  UINavigationBar.appearance().backgroundColor = .clear
+        //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        //                  UINavigationBar.appearance().shadowImage = UIImage()
+        //                  UINavigationBar.appearance().isTranslucent = true
+        //                  UINavigationBar.appearance().tintColor = .clear
+        //                  UINavigationBar.appearance().backgroundColor = .clear
         
+    }
+    
+    var searchResult: [LossesData] {
+        if searchText.isEmpty {
+            return datasetManager.lossesDataList.reversed()
+        }
+        else {
+            return datasetManager.lossesDataList.reversed().filter { String($0.day).contains(searchText) }
+        }
     }
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(datasetManager.lossesDataList.reversed()) {
+                ForEach(searchResult, id: \.self) {
                     dataLosses in
                     ZStack {
                         if dataLosses == datasetManager.lossesDataList.reversed().first! {
@@ -75,6 +84,8 @@ struct ContentView: View {
                 .resizable()
                 .ignoresSafeArea(.all))
             .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
+            .searchable(text: $searchText)
+            .foregroundColor(.gray)
         }
         .onAppear() {
             self.datasetManager.fetchLossesData()

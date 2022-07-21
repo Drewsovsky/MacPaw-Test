@@ -7,10 +7,7 @@
 
 import Foundation
 
-struct LossesData: Identifiable {
-    var id: String {
-        return date
-    }
+struct LossesData: Hashable {
     let date: String
     let day: Int
     let personnelAmount: String // personnel + personnelSymbol
