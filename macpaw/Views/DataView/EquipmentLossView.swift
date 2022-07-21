@@ -10,7 +10,7 @@ import SwiftUI
 struct EquipmentLossView: View {
     
     let title: String?
-    let value: Int?
+    let value: String?
     
     var body: some View {
         HStack {
@@ -19,7 +19,7 @@ struct EquipmentLossView: View {
                 .frame(alignment: .leading)
                 .font(.system(size: 12))
             Spacer()
-            Text(String(value!))
+            Text(value!)
                 .font(.system(size: 20))
                 .fontWeight(.bold)
                 .foregroundColor(Color("customRed"))
@@ -31,7 +31,7 @@ struct EquipmentLossView: View {
 
 struct EquipmentLossView_Previews: PreviewProvider {
     static var previews: some View {
-        EquipmentLossView(title: "N/A", value: 0)
+        EquipmentLossView(title: "N/A", value: "0")
             .previewLayout(.sizeThatFits)
     }
 }
