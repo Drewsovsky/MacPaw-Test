@@ -54,14 +54,14 @@ struct ContentView: View {
                 }
                 .listRowBackground(Color.clear)
             }
-            .onAppear() {
-                self.datasetManager.fetchLossesData()
-            }
             .listStyle(.inset)
             .background(Image("BackgroundImage")
                 .resizable()
                 .ignoresSafeArea(.all))
             .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
+        }
+        .onAppear() {
+            self.datasetManager.fetchLossesData()
         }
     }
 }
