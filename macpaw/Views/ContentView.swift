@@ -53,6 +53,22 @@ struct ContentView: View {
                     }
                 }
                 .listRowBackground(Color.clear)
+                Section {
+                    HStack {
+                        Spacer()
+                        Text("Докладніше про дані:")
+                            .font(.system(size: 12))
+                            .foregroundColor(Color("customDarkGray"))
+                        Link(destination: URL(string: "https://www.mil.gov.ua/")!) {
+                            Text("МО України")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("customLightGray"))
+                                .underline()
+                        }
+                        Spacer()
+                    }
+                }
+                .listRowBackground(Color.clear)
             }
             .listStyle(.inset)
             .background(Image("BackgroundImage")

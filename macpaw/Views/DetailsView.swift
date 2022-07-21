@@ -66,7 +66,7 @@ struct DetailsView: View {
                                         Text(safeLossesDirection)
                                             .font(.system(size: 12))
                                             .fontWeight(.bold)
-                                            .foregroundColor(Color("customGray"))
+                                            .foregroundColor(.white)
                                             .frame(alignment: .trailing)
                                         Spacer()
                                     }
