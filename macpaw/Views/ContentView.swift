@@ -51,7 +51,7 @@ struct ContentView: View {
                 ForEach(searchResult, id: \.self) {
                     dataLosses in
                     ZStack {
-                        if dataLosses == datasetManager.lossesDataList.reversed().first! {
+                        if dataLosses == searchResult.first! {
                             CustomCellView(day: dataLosses.day, date: dataLosses.date, personnelAmount: dataLosses.personnelAmount, aircrafts: dataLosses.aircraft, helicopters: dataLosses.helicopter)
                         } else {
                             DefaultCellView(day: dataLosses.day, personnelAmount: dataLosses.personnelAmount)
