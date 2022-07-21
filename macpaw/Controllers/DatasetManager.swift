@@ -46,7 +46,9 @@ class DatasetManager: ObservableObject {
     func getLossesStats (personnel p: Personnel, equipment e: Equipment) -> [LossesStats] {
         var stats = [LossesStats]()
         if let safePOW = p.prisonerOfWar {
-            stats.append(LossesStats(title: "Військовополонений", value: String(safePOW)))
+            if safePOW != 0 {
+                stats.append(LossesStats(title: "Військовополонений", value: String(safePOW)))
+            }
         }
         if e.aircraft != 0 {
             stats.append(LossesStats(title: "Літаки", value: String(e.aircraft)))
@@ -60,46 +62,53 @@ class DatasetManager: ObservableObject {
         if e.armoredPersonnelCarrier != 0 {
             stats.append(LossesStats(title: "ББМ", value: String(e.armoredPersonnelCarrier)))
         }
-        
+        if e.fieldArtillery != 0 {
+            stats.append(LossesStats(title: "Артсистеми", value: String(e.fieldArtillery)))
+        }
+        if e.multipleRocketLauncher != 0 {
+            stats.append(LossesStats(title: "РСЗВ", value: String(e.multipleRocketLauncher)))
+        }
+        if let safeMilAuto = e.militaryAuto {
+            if safeMilAuto != 0 {
+                stats.append(LossesStats(title: "Автомобілі", value: String(safeMilAuto)))
+            }
+        }
+        if let safeFuelTank = e.fuelTank {
+            if safeFuelTank != 0 {
+                stats.append(LossesStats(title: "Цистерни з ПММ", value: String(safeFuelTank)))
+            }
+        }
+        if e.drone != 0 {
+            stats.append(LossesStats(title: "БПЛА/Дрони", value: String(e.drone)))
+        }
+        if e.navalShip != 0 {
+            stats.append(LossesStats(title: "Кораблі/Катери", value: String(e.navalShip)))
+        }
+        if e.antiAircraftWarfare != 0 {
+            stats.append(LossesStats(title: "Засоби ППО", value: String(e.antiAircraftWarfare)))
+        }
+        if let safeSpecEquipment = e.specialEquipment {
+            if safeSpecEquipment != 0 {
+                stats.append(LossesStats(title: "Спецтехніка", value: String(safeSpecEquipment)))
+            }
+        }
+        if let safeSRBM = e.mobileSRBMSystem {
+            if safeSRBM != 0 {
+                stats.append(LossesStats(title: "ПУ ОТРК/ТРК", value: String(safeSRBM)))
+            }
+        }
+        if let safeVehicleFuel = e.vehiclesAndFuelTanks {
+            if safeVehicleFuel != 0 {
+                stats.append(LossesStats(title: "Автомобілі та автоцистерни", value: String(safeVehicleFuel)))
+            }
+        }
+        if let safeCruiseMissiles = e.cruiseMissiles {
+            if safeCruiseMissiles != 0 {
+                stats.append(LossesStats(title: "Крилаті ракети", value: String(safeCruiseMissiles)))
+            }
+        }
         return stats
     }
-    
-//                            if losses?.fieldArtillery != 0 {
-//                                EquipmentLossView(title: "Артсистеми", value: losses?.fieldArtillery)
-//                            }
-//                            if losses?.multipleRocketLauncher != 0 {
-//                                EquipmentLossView(title: "РСЗВ", value: losses?.multipleRocketLauncher)
-//                            }
-//                            if losses?.militaryAuto != 0 {
-//                                EquipmentLossView(title: "Автомобілі", value: losses?.militaryAuto)
-//                            }
-//                            if losses?.fuelTank != 0 {
-//                                EquipmentLossView(title: "Цистерни з ПММ", value: losses?.fuelTank)
-//                            }
-//                            if losses?.drone != 0 {
-//                                EquipmentLossView(title: "БПЛА/Дрони", value: losses?.drone)
-//                            }
-//                            if losses?.navalShip != 0 {
-//                                EquipmentLossView(title: "Кораблі/Катери", value: losses?.navalShip)
-//                            }
-//                            if losses?.antiAircraftWarfare != 0 {
-//                                EquipmentLossView(title: "Засоби ППО", value: losses?.antiAircraftWarfare)
-//                            }
-//                            if losses?.specialEquipment != 0 {
-//                                EquipmentLossView(title: "Спецтехніка", value: losses?.specialEquipment)
-//                            }
-//                            if losses?.mobileSRBMSystem != 0 {
-//                                EquipmentLossView(title: "ПУ ОТРК/ТРК", value: losses?.mobileSRBMSystem)
-//                            }
-//                            if losses?.vehiclesAndFuelTanks != 0 {
-//                                EquipmentLossView(title: "Автомобілі та автоцистерни", value: losses?.vehiclesAndFuelTanks)
-//                            }
-//                            if losses?.cruiseMissiles != 0 {
-//                                EquipmentLossView(title: "Крилаті ракети", value: losses?.cruiseMissiles)
-//                            }
-//                            if losses?.greatestLossesDirection != "N/A" {
-//                                Text(losses?.greatestLossesDirection)
-//                            }
     
     func fetchPersonnelData() {
         do {
