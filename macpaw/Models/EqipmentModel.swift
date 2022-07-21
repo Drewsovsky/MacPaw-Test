@@ -23,7 +23,6 @@ struct Equipment {
         case greatestLossesDirection = "greatest losses direction"
         
         case date
-        case day
         case aircraft
         case helicopter
         case tank
@@ -32,7 +31,6 @@ struct Equipment {
     }
 
     let date: String
-    let day: Int
     let aircraft: Int
     let helicopter: Int
     let tank: Int
@@ -55,27 +53,21 @@ extension Equipment: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         date = try container.decode(String.self, forKey: .date)
-        if let openDay = try? container.decode(Int.self, forKey: .day) {
-            day = openDay
-        } else {
-            // TODO: encode
-            day = 0
-        }
         aircraft = try container.decode(Int.self, forKey: .aircraft)
         helicopter = try container.decode(Int.self, forKey: .helicopter)
         tank = try container.decode(Int.self, forKey: .tank)
         armoredPersonnelCarrier = try container.decode(Int.self, forKey: .armoredPersonnelCarrier)
         fieldArtillery = try container.decode(Int.self, forKey: .fieldArtillery)
         multipleRocketLauncher = try container.decode(Int.self, forKey: .multipleRocketLauncher)
-        militaryAuto = try container.decode(Int?.self, forKey: .militaryAuto)
-        fuelTank = try container.decode(Int?.self, forKey: .fuelTank)
+        militaryAuto = try container.decodeIfPresent(Int?.self, forKey: .militaryAuto) as? Int
+        fuelTank = try container.decodeIfPresent(Int?.self, forKey: .fuelTank) as? Int
         drone = try container.decode(Int.self, forKey: .drone)
         navalShip = try container.decode(Int.self, forKey: .navalShip)
         antiAircraftWarfare = try container.decode(Int.self, forKey: .antiAircraftWarfare)
-        specialEquipment = try container.decodeIfPresent(Int?.self, forKey: .specialEquipment) ?? 0
-        mobileSRBMSystem = try container.decodeIfPresent(Int?.self, forKey: .mobileSRBMSystem) ?? 0
-        vehiclesAndFuelTanks = try container.decodeIfPresent(Int?.self, forKey: .vehiclesAndFuelTanks) ?? 0
-        cruiseMissiles = try container.decodeIfPresent(Int?.self, forKey: .cruiseMissiles) ?? 0
-        greatestLossesDirection = try container.decodeIfPresent(String?.self, forKey: .greatestLossesDirection) ?? "N/A"
+        specialEquipment = try container.decodeIfPresent(Int?.self, forKey: .specialEquipment) as? Int
+        mobileSRBMSystem = try container.decodeIfPresent(Int?.self, forKey: .mobileSRBMSystem) as? Int
+        vehiclesAndFuelTanks = try container.decodeIfPresent(Int?.self, forKey: .vehiclesAndFuelTanks) as? Int
+        cruiseMissiles = try container.decodeIfPresent(Int?.self, forKey: .cruiseMissiles) as? Int
+        greatestLossesDirection = try container.decodeIfPresent(String?.self, forKey: .greatestLossesDirection) as? String
     }
 }

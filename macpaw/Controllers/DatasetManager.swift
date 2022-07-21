@@ -35,19 +35,6 @@ class DatasetManager: ObservableObject {
                             prisonerOfWar: personnel.prisonerOfWar,
                             aircraft: equipment.aircraft,
                             helicopter: equipment.helicopter,
-                            tank: equipment.tank,
-                            armoredPersonnelCarrier: equipment.armoredPersonnelCarrier,
-                            fieldArtillery: equipment.fieldArtillery,
-                            multipleRocketLauncher: equipment.multipleRocketLauncher,
-                            militaryAuto: equipment.militaryAuto,
-                            fuelTank: equipment.fuelTank,
-                            drone: equipment.drone,
-                            navalShip: equipment.navalShip,
-                            antiAircraftWarfare: equipment.antiAircraftWarfare,
-                            specialEquipment: equipment.specialEquipment,
-                            mobileSRBMSystem: equipment.mobileSRBMSystem,
-                            vehiclesAndFuelTanks: equipment.vehiclesAndFuelTanks,
-                            cruiseMissiles: equipment.cruiseMissiles,
                             greatestLossesDirection: equipment.greatestLossesDirection))
                     }
                 }
@@ -72,11 +59,7 @@ class DatasetManager: ObservableObject {
         do {
             let jsonData = try Data(contentsOf: urlEquipmentLossses)
             let decoder = JSONDecoder()
-            
-            let data = String(data: jsonData, encoding: .utf8)!
-            let safeData = data.replacingOccurrences(of: "NaN", with: "null").data(using: .utf8)!
-            
-            let result = try decoder.decode([Equipment].self, from: safeData)
+            let result = try decoder.decode([Equipment].self, from: jsonData)
             DispatchQueue.main.async {
                 self.equipmentList = result
             }

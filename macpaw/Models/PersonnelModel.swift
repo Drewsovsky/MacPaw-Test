@@ -11,7 +11,6 @@ struct Personnel: Codable {
     enum CodingKeys: String, CodingKey {
         case personnelSymbol = "personnel*"
         case prisonerOfWar = "POW"
-        
         case date
         case day
         case personnel
@@ -21,7 +20,7 @@ struct Personnel: Codable {
     let day: Int
     let personnel: Int
     let personnelSymbol: String
-    let prisonerOfWar: Int
+    let prisonerOfWar: Int?
 }
 
 extension Personnel: Equatable {
@@ -41,5 +40,14 @@ extension Personnel {
         else {
             return String(personnel)
         }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.date = try container.decode(String.self, forKey: .date)
+        self.day = try container.decode(Int.self, forKey: .day)
+        self.personnel = try container.decode(Int.self, forKey: .personnel)
+        self.personnelSymbol = try container.decode(String.self, forKey: .personnelSymbol)
+        self.prisonerOfWar = try container.decodeIfPresent(Int?.self, forKey: .prisonerOfWar) as? Int
     }
 }
