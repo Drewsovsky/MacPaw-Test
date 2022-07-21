@@ -7,40 +7,40 @@
 
 import Foundation
 
-struct LossesData: Identifiable {
-    var id: String {
-        return date
-    }
+struct LossesData: Hashable {
     let date: String
     let day: Int
     let personnelAmount: String // personnel + personnelSymbol
-    let prisonerOfWar: Int
     let aircraft: Int
     let helicopter: Int
-    let tank: Int
-    let armoredPersonnelCarrier: Int
+    let greatestLossesDirection: String?
+    
+    var lossesStats: [LossesStats?]
     
     init(
-        _ date: String,
-        _ day: Int,
-        _ personnelAmount: String,
-        _ prisonerOfWar: Int,
-        _ aircraft: Int,
-        _ helicopter: Int,
-        _ tank: Int,
-        _ armoredPersonnelCarrier: Int
+        date: String,
+        day: Int,
+        personnelAmount: String,
+        aircraft: Int,
+        helicopter: Int,
+        greatestLossesDirection: String?,
+        lossesStats: [LossesStats?]
     ) {
         self.date = date
         self.day = day
         self.personnelAmount = personnelAmount
-        self.prisonerOfWar = prisonerOfWar
         self.aircraft = aircraft
         self.helicopter = helicopter
-        self.tank = tank
-        self.armoredPersonnelCarrier = armoredPersonnelCarrier
+        self.greatestLossesDirection = greatestLossesDirection
+        self.lossesStats = lossesStats
     }
     
     static func == (lhs: LossesData, rhs: LossesData) -> Bool {
         lhs.day == rhs.day
     }
+}
+
+struct LossesStats : Hashable {
+    let title: String
+    let value: String
 }
