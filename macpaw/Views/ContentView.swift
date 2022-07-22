@@ -20,6 +20,7 @@ struct ContentView: View {
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundEffect = UIBlurEffect(style: UIBlurEffect.Style.systemUltraThinMaterialDark)
         
+        UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
