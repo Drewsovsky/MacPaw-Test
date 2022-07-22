@@ -40,7 +40,7 @@ struct LossesData: Hashable {
     }
 }
 
-struct LossesStats : Hashable {
+struct LossesStats: Hashable {
     let title: String
     let value: String
 }
