@@ -77,6 +77,7 @@ struct ContentView: View {
             .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
             .searchable(text: $searchText)
             .foregroundColor(.gray)
+            .preferredColorScheme(.dark)
         }
         .onAppear() {
             self.datasetManager.fetchLossesData()
