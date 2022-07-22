@@ -15,24 +15,15 @@ struct ContentView: View {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
         
-        // NavigationBar appereance settup
-        //        let navBarAppereance = UINavigationBarAppearance()
-        //        navBarAppereance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-        //        navBarAppereance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-        //        navBarAppereance.backgroundColor = UIColor.clear
-        //        //navBarAppereance.backgroundEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-        //        navBarAppereance.shadowColor = UIColor.clear
-        //        UINavigationBar.appearance().standardAppearance = navBarAppereance
-        //        UINavigationBar.appearance().compactAppearance = navBarAppereance
-        //        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppereance
-        //        UINavigationBar.appearance().tintColor = UIColor.systemBackground
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundEffect = UIBlurEffect(style: UIBlurEffect.Style.systemUltraThinMaterialDark)
         
-        
-        //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        //                  UINavigationBar.appearance().shadowImage = UIImage()
-        //                  UINavigationBar.appearance().isTranslucent = true
-        //                  UINavigationBar.appearance().tintColor = .clear
-        //                  UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
     }
     
@@ -86,6 +77,7 @@ struct ContentView: View {
             .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
             .searchable(text: $searchText)
             .foregroundColor(.gray)
+            .preferredColorScheme(.dark)
         }
         .onAppear() {
             self.datasetManager.fetchLossesData()
