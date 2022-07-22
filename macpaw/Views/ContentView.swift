@@ -52,6 +52,7 @@ struct ContentView: View {
                             .opacity(0)
                     }
                 }
+                .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
                 Section {
                     HStack {
@@ -68,6 +69,7 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
+                .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
             }
             .listStyle(.inset)
