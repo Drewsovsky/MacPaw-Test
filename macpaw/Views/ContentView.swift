@@ -32,7 +32,7 @@ struct ContentView: View {
             return datasetManager.lossesDataList.reversed()
         }
         else {
-            return datasetManager.lossesDataList.reversed().filter { String($0.day).contains(searchText) }
+            return datasetManager.lossesDataList.filter { String($0.day).contains(searchText) }
         }
     }
     
