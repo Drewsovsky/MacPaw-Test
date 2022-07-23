@@ -22,13 +22,13 @@ struct CustomCellView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 96))
                     .fontWeight(.bold)
-                Text("день війни")
+                Text(K.txt.dayOfWar)
                     .foregroundColor(.white)
                     .font(.system(size: 32))
                     .fontWeight(.bold)
                 HStack(alignment: .center) {
                     VStack(alignment: .leading) {
-                        Text("Втрати ворога на")
+                        Text(K.txt.enemyLossesOn)
                             .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                         Text(date!)
@@ -42,7 +42,7 @@ struct CustomCellView: View {
                             .foregroundColor(Color("customRed"))
                             .font(.system(size: 32))
                             .fontWeight(.bold)
-                        Text("Особового складу")
+                        Text(K.txt.personnel)
                             .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                     }
@@ -51,7 +51,7 @@ struct CustomCellView: View {
                     .background(.white)
                 HStack {
                     HStack {
-                        Text("Літаки")
+                        Text(K.equipmentLosses.aircraft)
                             .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                             .frame(alignment: .leading)
@@ -63,7 +63,7 @@ struct CustomCellView: View {
                     }
                     Spacer()
                     HStack {
-                        Text("Гвинтокрили")
+                        Text(K.equipmentLosses.helicopters)
                             .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                             .frame(alignment: .leading)

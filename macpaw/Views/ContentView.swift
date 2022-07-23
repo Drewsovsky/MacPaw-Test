@@ -57,11 +57,11 @@ struct ContentView: View {
                 Section {
                     HStack {
                         Spacer()
-                        Text("Докладніше про дані:")
+                        Text(K.txt.moreAbout)
                             .font(.system(size: 12))
                             .foregroundColor(Color("customDarkGray"))
                         Link(destination: URL(string: "https://www.mil.gov.ua/")!) {
-                            Text("МО України")
+                            Text(K.txt.milDefUA)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("customLightGray"))
                                 .underline()
@@ -76,7 +76,7 @@ struct ContentView: View {
             .background(Image("BackgroundImage")
                 .resizable()
                 .ignoresSafeArea(.all))
-            .navigationBarTitle("Ukraine Russia War", displayMode: .inline)
+            .navigationBarTitle(K.title, displayMode: .inline)
             .searchable(text: $searchText)
             .foregroundColor(.gray)
             .preferredColorScheme(.dark)
