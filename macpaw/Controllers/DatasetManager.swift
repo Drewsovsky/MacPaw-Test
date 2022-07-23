@@ -45,22 +45,22 @@ class DatasetManager: ObservableObject {
         var stats = [LossesStats]()
         
         [
-            "Військовополонені": p.prisonerOfWar,
-            "Літаки": e.aircraft,
-            "Гелікоптери": e.helicopter,
-            "Танки": e.tank,
-            "ББМ": e.armoredPersonnelCarrier,
-            "Артсистеми": e.fieldArtillery,
-            "РСЗВ": e.multipleRocketLauncher,
-            "Автомобілі": e.militaryAuto,
-            "Цистерни з ПММ": e.fuelTank,
-            "БПЛА/Дрони": e.drone,
-            "Кораблі/Катери": e.navalShip,
-            "Засоби ППО": e.antiAircraftWarfare,
-            "Спецтехніка": e.specialEquipment,
-            "ПУ ОТРК/ТРК": e.mobileSRBMSystem,
-            "Автомобілі та автоцистерни": e.vehiclesAndFuelTanks,
-            "Крилаті ракети": e.cruiseMissiles
+            K.equipmentLosses.POW: p.prisonerOfWar,
+            K.equipmentLosses.aircraft: e.aircraft,
+            K.equipmentLosses.helicopters: e.helicopter,
+            K.equipmentLosses.tanks: e.tank,
+            K.equipmentLosses.armoredPersonnelCarrier: e.armoredPersonnelCarrier,
+            K.equipmentLosses.artillery: e.fieldArtillery,
+            K.equipmentLosses.MRL: e.multipleRocketLauncher,
+            K.equipmentLosses.militaryAuto: e.militaryAuto,
+            K.equipmentLosses.fuelTank: e.fuelTank,
+            K.equipmentLosses.drones: e.drone,
+            K.equipmentLosses.ships: e.navalShip,
+            K.equipmentLosses.antiAircraftWarfare: e.antiAircraftWarfare,
+            K.equipmentLosses.specEquipment: e.specialEquipment,
+            K.equipmentLosses.mobileSRBM: e.mobileSRBMSystem,
+            K.equipmentLosses.vehicleAndFuel: e.vehiclesAndFuelTanks,
+            K.equipmentLosses.cruiseMissiles: e.cruiseMissiles
         ].forEach { (title: String, value: Int?) in
             if let safeValue = value, safeValue != 0 {
                 stats.append(LossesStats(title: title, value: String(safeValue)))

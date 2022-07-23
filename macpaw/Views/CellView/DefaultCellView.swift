@@ -21,7 +21,7 @@ struct DefaultCellView: View {
                             .font(.system(size: 32))
                             .fontWeight(.bold)
                             .foregroundColor(Color("customGray"))
-                        Text("день війни")
+                        Text(K.txt.dayOfWar)
                             .foregroundColor(.white)
                             .font(.system(size: 14))
                             .fontWeight(.bold)
@@ -32,7 +32,7 @@ struct DefaultCellView: View {
                             .foregroundColor(Color("customRed"))
                             .font(.system(size: 30))
                             .fontWeight(.bold)
-                        Text("Особового складу")
+                        Text(K.txt.personnel)
                             .font(.system(size: 14))
                             .foregroundColor(Color("customGray"))
                     }

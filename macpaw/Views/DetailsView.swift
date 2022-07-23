@@ -24,13 +24,13 @@ struct DetailsView: View {
                                 .foregroundColor(.white)
                                 .font(.system(size: 96))
                                 .fontWeight(.bold)
-                            Text("день війни")
+                            Text(K.txt.dayOfWar)
                                 .foregroundColor(.white)
                                 .font(.system(size: 32))
                                 .fontWeight(.bold)
                             HStack(alignment: .center) {
                                 VStack(alignment: .leading) {
-                                    Text("Втрати ворога на")
+                                    Text(K.txt.enemyLossesOn)
                                         .foregroundColor(Color("customGray"))
                                         .font(.system(size: 14))
                                     Text(losses!.date)
@@ -44,7 +44,7 @@ struct DetailsView: View {
                                         .foregroundColor(Color("customRed"))
                                         .font(.system(size: 32))
                                         .fontWeight(.bold)
-                                    Text("Особового складу")
+                                    Text(K.txt.personnel)
                                         .font(.system(size: 14))
                                         .foregroundColor(Color("customGray"))
                                 }
@@ -59,7 +59,7 @@ struct DetailsView: View {
                                 }
                                 if let safeLossesDirection = losses!.greatestLossesDirection {
                                     HStack {
-                                        Text("Найбільші втрати в напрямі:")
+                                        Text(K.txt.greatestLossesDirection)
                                             .font(.system(size: 12))
                                             .foregroundColor(Color("customGray"))
                                             .frame(alignment: .leading)
@@ -83,7 +83,7 @@ struct DetailsView: View {
                 }
             }
         }
-        .navigationTitle("Ukraine Russia War")
+        .navigationTitle(K.title)
     }
 }
 
